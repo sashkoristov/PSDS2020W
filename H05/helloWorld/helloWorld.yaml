@@ -1,0 +1,24 @@
+---
+name: "helloWorld"
+dataIns:
+  - name: "name"
+    type: "string"
+    source: "name"
+workflowBody:
+  - function:
+      name: "hello"
+      type: "helloType"
+      dataIns:
+        - name: "name"
+          type: "string"
+          source: "helloWorld/name"
+      dataOuts:
+        - name: "message"
+          type: "string"
+      properties:
+        - name: "resource"
+          value: "python:PUT THE ARN of YOUR FUNCTION HELLO WORLD HERE"
+dataOuts:
+  - name: "message"
+    type: "string"
+    source: "hello/message"
