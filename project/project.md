@@ -79,6 +79,7 @@ Your lab uses a short-read sequencer such as [Illumina MiSeq](https://www.illumi
 * Run samtools sort to sort entries
 * Run samtools view to convert to .bam (binary sam)
 * Run samtools index to make it searchable
+* Use IGV to investigate the `hipA` gene for resistance
 
 
 ## Project 3: Prediction of stock prices `S3, Forecast, webhook` (Java, Python, Node.js)
