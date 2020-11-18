@@ -42,12 +42,13 @@ You'll create a real-life workflow to process Escherichia Coli DNA samples, and 
 #### Motivation
 
 You are working in a lab that frequently receives DNA samples of Ecoli bacteria from a hospital.
-Ecoli can cause potentially food poisoning, for which the recommended treatment for healthy adults is to just wait it out.
+Ecoli can cause food poisoning, and the recommended treatment for healthy adults is to just wait it out.
 However, in some cases antibiotics may be necessary.
 
-You want to find out if this Ecoli strain could be treated with antibiotics, to then suggest a treatment for the patient.
+You want to find out if a Ecoli sample is resistant to antibiotics, to suggest a treatment for the patient.
+This has to happen as fast as possible from when the sample arrives. 
 
-This has to happen as fast as possible from when the sample arrives. Ecoli DNA is fairly short (4.6 million base pairs). However, samples are usually contaminated (human, bacterial DNA) so processing is hard and has to be parallelized.
+Ecoli DNA is fairly short (4.6 million base pairs). However, samples are usually contaminated (human, bacterial DNA) so processing is hard and has to be parallelized.
 
 Your lab uses a short-read sequencer such as [Illumina MiSeq](https://www.illumina.com/systems/sequencing-platforms/miseq.html) to read ('sequence') the [basepairs](https://en.wikipedia.org/wiki/Base_pair#Examples) of the DNA. 
 
