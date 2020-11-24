@@ -1,0 +1,658 @@
+{
+  "definitions": {
+    "propertiesConstraintDef": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "dataInsDef": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "passing": {
+            "type": "boolean"
+          },
+          "properties": {
+            "$ref": "#/definitions/propertiesConstraintDef"
+          },
+          "constraints": {
+            "$ref": "#/definitions/propertiesConstraintDef"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ]
+      }
+    },
+    "dataOutsDef": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "saveto": {
+            "type": "string"
+          },
+          "passing": {
+            "type": "boolean"
+          },
+          "properties": {
+            "$ref": "#/definitions/propertiesConstraintDef"
+          },
+          "constraints": {
+            "$ref": "#/definitions/propertiesConstraintDef"
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "source"
+        ]
+      }
+    },
+    "dataLoopsDef": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "initSource": {
+            "type": "string"
+          },
+          "loopSource": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "passing": {
+            "type": "boolean"
+          },
+          "properties": {
+            "$ref": "#/definitions/propertiesConstraintDef"
+          },
+          "constraints": {
+            "$ref": "#/definitions/propertiesConstraintDef"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ]
+      }
+    },
+    "conditionDef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "combinedWith": {
+          "type": "string",
+          "enum": [
+            "and",
+            "or"
+          ]
+        },
+        "conditions": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "data1": {
+                  "type": "string"
+                },
+                "data2": {
+                  "type": "string"
+                },
+                "operator": {
+                  "type": "string",
+                  "enum": [
+                    "==",
+                    "!=",
+                    ">",
+                    ">=",
+                    "<",
+                    "=<",
+                    "contains",
+                    "startsWith",
+                    "endsWith"
+                  ]
+                },
+                "negation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "data1",
+                "data2",
+                "operator"
+              ]
+            }
+          ],
+          "additionalItems": false
+        }
+      },
+      "required": [
+        "combinedWith",
+        "conditions"
+      ]
+    },
+    "loopCounterDef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "step": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "from",
+        "to"
+      ]
+    },
+    "atomicFunctionDef": {
+      "additionalProperties": false,
+      "properties": {
+        "function": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "dataIns": {
+              "$ref": "#/definitions/dataInsDef"
+            },
+            "dataOuts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "passing": {
+                    "type": "boolean"
+                  },
+                  "saveto": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "type"
+                ]
+              }
+            },
+            "properties": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            },
+            "constraints": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            }
+          },
+          "required": [
+            "name",
+            "type"
+          ]
+        }
+      }
+    },
+    "sequenceDef": {
+      "additionalProperties": false,
+      "properties": {
+        "sequence": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "dataIns": {
+              "$ref": "#/definitions/dataInsDef"
+            },
+            "sequenceBody": {
+              "$ref": "#/definitions/functionDef"
+            },
+            "dataOuts": {
+              "$ref": "#/definitions/dataOutsDef"
+            },
+            "properties": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            },
+            "constraints": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            }
+          },
+          "required": [
+            "name",
+            "sequenceBody"
+          ]
+        }
+      }
+    },
+    "ifThenElseDef": {
+      "additionalProperties": false,
+      "properties": {
+        "if": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "dataIns": {
+              "$ref": "#/definitions/dataInsDef"
+            },
+            "condition": {
+              "$ref": "#/definitions/conditionDef"
+            },
+            "then": {
+              "$ref": "#/definitions/functionDef"
+            },
+            "else": {
+              "$ref": "#/definitions/functionDef"
+            },
+            "dataOuts": {
+              "$ref": "#/definitions/dataOutsDef"
+            },
+            "properties": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            },
+            "constraints": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            }
+          },
+          "required": [
+            "name",
+            "condition",
+            "then"
+          ]
+        }
+      }
+    },
+    "switchDef": {
+      "additionalProperties": false,
+      "properties": {
+        "switch": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "dataIns": {
+              "$ref": "#/definitions/dataInsDef"
+            },
+            "dataEval": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "type"
+              ]
+            },
+            "cases": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "value": {
+                      "type": "string"
+                    },
+                    "break": {
+                      "type": "string"
+                    },
+                    "functions": {
+                      "$ref": "#/definitions/functionDef"
+                    }
+                  },
+                  "required": [
+                    "value",
+                    "functions"
+                  ]
+                }
+              ]
+            },
+            "default": {
+              "$ref": "#/definitions/functionDef"
+            },
+            "dataOuts": {
+              "$ref": "#/definitions/dataOutsDef"
+            },
+            "properties": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            },
+            "constraints": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            }
+          },
+          "required": [
+            "name",
+            "dataEval",
+            "cases"
+          ]
+        }
+      }
+    },
+    "sequentialForDef": {
+      "additionalProperties": false,
+      "properties": {
+        "for": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "dataIns": {
+              "$ref": "#/definitions/dataInsDef"
+            },
+            "dataLoops": {
+              "$ref": "#/definitions/dataLoopsDef"
+            },
+            "loopCounter": {
+              "$ref": "#/definitions/loopCounterDef"
+            },
+            "loopBody": {
+              "$ref": "#/definitions/functionDef"
+            },
+            "dataOuts": {
+              "$ref": "#/definitions/dataOutsDef"
+            },
+            "properties": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            },
+            "constraints": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            }
+          },
+          "required": [
+            "name",
+            "loopCounter",
+            "loopBody"
+          ]
+        }
+      }
+    },
+    "sequentialWhileDef": {
+      "additionalProperties": false,
+      "properties": {
+        "while": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "dataIns": {
+              "$ref": "#/definitions/dataInsDef"
+            },
+            "dataLoops": {
+              "$ref": "#/definitions/dataLoopsDef"
+            },
+            "condition": {
+              "$ref": "#/definitions/conditionDef"
+            },
+            "loopBody": {
+              "$ref": "#/definitions/functionDef"
+            },
+            "dataOuts": {
+              "$ref": "#/definitions/dataOutsDef"
+            },
+            "properties": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            },
+            "constraints": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            }
+          },
+          "required": [
+            "name",
+            "condition",
+            "loopBody"
+          ]
+        }
+      }
+    },
+    "parallelDef": {
+      "additionalProperties": false,
+      "properties": {
+        "parallel": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "dataIns": {
+              "$ref": "#/definitions/dataInsDef"
+            },
+            "parallelBody": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "section": {
+                      "$ref": "#/definitions/functionDef"
+                    }
+                  }
+                }
+              ]
+            },
+            "dataOuts": {
+              "$ref": "#/definitions/dataOutsDef"
+            },
+            "properties": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            },
+            "constraints": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            }
+          },
+          "required": [
+            "name",
+            "parallelBody"
+          ]
+        }
+      }
+    },
+    "parallelForDef": {
+      "additionalProperties": false,
+      "properties": {
+        "parallelFor": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "dataIns": {
+              "$ref": "#/definitions/dataInsDef"
+            },
+            "loopCounter": {
+              "$ref": "#/definitions/loopCounterDef"
+            },
+            "loopBody": {
+              "$ref": "#/definitions/functionDef"
+            },
+            "dataOuts": {
+              "$ref": "#/definitions/dataOutsDef"
+            },
+            "properties": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            },
+            "constraints": {
+              "$ref": "#/definitions/propertiesConstraintDef"
+            }
+          },
+          "required": [
+            "name",
+            "loopCounter",
+            "loopBody"
+          ]
+        }
+      }
+    },
+    "subFCDef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "dataIns": {
+          "$ref": "#/definitions/dataInsDef"
+        },
+        "subFCBody": {
+          "$ref": "#/definitions/functionDef"
+        },
+        "dataOuts": {
+          "$ref": "#/definitions/dataOutsDef"
+        },
+        "properties": {
+          "$ref": "#/definitions/propertiesConstraintDef"
+        },
+        "constraints": {
+          "$ref": "#/definitions/propertiesConstraintDef"
+        }
+      },
+      "required": [
+        "name",
+        "subFCBody"
+      ]
+    },
+    "functionDef": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/atomicFunctionDef"
+          },
+          {
+            "$ref": "#/definitions/sequenceDef"
+          },
+          {
+            "$ref": "#/definitions/ifThenElseDef"
+          },
+          {
+            "$ref": "#/definitions/switchDef"
+          },
+          {
+            "$ref": "#/definitions/parallelDef"
+          },
+          {
+            "$ref": "#/definitions/parallelForDef"
+          },
+          {
+            "$ref": "#/definitions/sequentialWhileDef"
+          },
+          {
+            "$ref": "#/definitions/sequentialForDef"
+          }
+        ]
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "subFCs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/subFCDef"
+      }
+    },
+    "dataIns": {
+      "$ref": "#/definitions/dataInsDef"
+    },
+    "workflowBody": {
+      "$ref": "#/definitions/functionDef"
+    },
+    "dataOuts": {
+      "$ref": "#/definitions/dataOutsDef"
+    }
+  }
+}
