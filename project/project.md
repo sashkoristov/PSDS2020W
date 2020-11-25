@@ -353,7 +353,7 @@ Orchestrate the functions with the Enactment Engine to generate the report autom
 
 ----
 
-# Prooject 4: Multi-Objective Optimization `Opt4J`
+# Project 4: Multi-Objective Optimization `Opt4J`
 
 You will deploy a parallalized optimization algorithm which optimizes a given problem with respect to multiple objectives.
 
@@ -370,17 +370,31 @@ In this task, your goal is to (a) study how the optimization of a multi-objectiv
 - Optimizer configuration
 - Problem configuration
 
-(A Java project with an optimization problem implemented within Opt4J will be provided as a starting point for this task).
+### Rough steps
 
-### Rough steps (Irrelevant for this task)
+You will be starting with two optimizations which are already working on a local machine but not explicitly designed for a distributed deployment. You can find the two optimizations in the following repository: [Optimization Use Cases Repository](https://github.com/uibk-dps-teaching/proSemDistrSysWS2021/tree/master/ProjectTopicEa).
 
-- Familiarization with the implementation of an evolutionary algorithm within the Opt4J framework. 
-- Definition of a parallelization concept: 
-	- Dividing the optimization into individual tasks
-	- Definition the FC for the evolutionary optimization
-- Implementation
-	- Implementation of the FC
-	- Implementation of the functions
+#### Week A: Design the workflow with AFCL
+
+Design a preliminary version of the workflow of the EA.
+
+For this step, you will have to:
+
+- Study the code of Opt4J (for this, it may be helpful to have a look at the [Opt4J Tutorial](http://opt4j.sourceforge.net/documentation/3.0/tutorial.xhtml))
+- Identify the components necessary for the optimization
+- Reason about data dependencies of these components to identify both opportunities and bottlenecks for parallelisation
+
+#### Week B: Implement the functions
+
+Implement the code for the functions of the designed workflow. 
+
+_Note:_ Since the functions are already implemented within Opt4J, your main work will consist in (a) identifying the code necessary for the optimization, (b) defining the individual workflow tasks and defining the interfaces between them, and \(c) deploying the functions. 
+
+#### Week C: 
+
+- Orchestrate the functions with the Enactment Engine to run the optimization.
+- Evaluate the run time of the distributed EA by comparing it to an execution on your local machine
+- Reflect about the work you have done throughout the project. How much code were you able to reuse between the two optimization problems? How difficult would it be to deploy an EA optimizing yet another problem? Can you alter your workflow/your function interfaces to maximize the reusability of your work for other optimization problems?
 
 ----
 
