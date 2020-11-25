@@ -290,7 +290,7 @@ This becomes relevant in real-life cases where workflows are run millions of tim
 
 ----
 
-# Prooject 4: Multi-Objective Optimization `Opt4J` (Java)
+# Project 4: Multi-Objective Optimization `Opt4J` (Java)
 
 You will deploy a parallalized optimization algorithm which optimizes a given problem with respect to multiple objectives.
 
@@ -309,7 +309,7 @@ In this task, your goal is to (a) study how the optimization of a multi-objectiv
 
 (A Java project with an optimization problem implemented within Opt4J will be provided as a starting point for this task).
 
-### Rough steps (Irrelevant for this task)
+### Rough steps
 
 - Familiarization with the implementation of an evolutionary algorithm within the Opt4J framework. 
 - Definition of a parallelization concept: 
