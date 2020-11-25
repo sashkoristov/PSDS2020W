@@ -436,7 +436,7 @@ Create empty functions that just produce the data how you specified with AFCL. R
 #### Get passengers `Database`
 
 This function should read all passengers that are at the airport. You may use a boolean flag in the database to know whether a passenger of the flight is present at the airport.
-Think which passenger data youwill need for later.
+Think which passenger data you will need for later.
 
 #### Calculate security check delay `AWS Rekognition` `AWS S3`
 
@@ -459,7 +459,7 @@ This function should return the estimated time between two GPS locations (e.g., 
 This function should send a notification to a passenger based on the input. Select the notification channel you like (`email`, `slack`, `sms`, ...).
 
 Hints:
-* Choose an appropriate threshold such that the time to gate for some passengers is bellow, while for others is above the threshold.
+* Choose an appropriate threshold such that the time to gate for some passengers is below, while for others is above the threshold.
 
 
 ## Week C (Homework 08)
