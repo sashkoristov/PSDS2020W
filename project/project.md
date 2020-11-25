@@ -151,7 +151,7 @@ You need to create a workflow that performs a series of actions after a gate of 
 
 #### Motivation
 
-The workflow reads the information about the flight, the new gate and then loads all available passenger data (from a Database) of that flight. Also, checks the quelength of the security check. Thereafter, for every passenger from that flight that is already at the airport, the workflow reads the gps location and calculates the time to gate.
+The workflow reads the information about the flight, the new gate and then loads all available passenger data (from a Database) of that flight. Also, checks the queue length of the security check. Thereafter, for every passenger from that flight that is already at the airport, the workflow reads the gps location and calculates the time to gate.
 
 #### Input 
 
