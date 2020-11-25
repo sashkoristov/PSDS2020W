@@ -170,8 +170,8 @@ We usually also have a reference DNA of that organism. This is akin to the pictu
  `ATCGAAACTT` | reference DNA
   `??????????` | skin sample DNA
  `ATCC`, `ACT`, `AAC`, `CCAAA`, `ACTT` | reads of skin sample
- <code>ATCGAAACTT</code> (reference DNA)<br><code>ATC<b>C</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACT&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AAC&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;C<b>C</b>AAA&nbsp;&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACTT</code><br><code>ATC<b>C</b>AAACTT</code> (inferred skin sample DNA) | what bwa does
-We know that a `C` mutation at the fourth<br> position leads to brown eyes. Now we <br>check for that by hand in the inferred DNA. | IGV (by hand)
+ <code>ATCGAAACTT</code> (reference DNA)<br><code>ATC<b>C</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACT&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AAC&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;C<b>C</b>AAA&nbsp;&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACTT</code><br><code>ATC<b>C</b>AAACTT</code> (aligned skin sample DNA) | what bwa does
+We know that a `C` mutation at the fourth<br> position leads to brown eyes. Now we <br>check for that by hand in the aligned DNA. | IGV (by hand)
 
 
 #### Hints
