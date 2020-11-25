@@ -156,7 +156,7 @@ Your lab uses a short-read sequencer such as [Illumina MiSeq](https://www.illumi
 
 #### Crash course in Bioinformatics
 
-DNA is the source code of organisms; it's a long string of the bases A, T, G, C (compared to 0 and 1) that describes all traits of the organism. It's incredibly long - 2 meters and 3 billion basepairs (bits) - but it is bundled up ingeniously so it fits into cells that are just 10 to 100 micrometers in diameter.
+DNA is the source code of organisms. It is a string of the bases `A`, `T`, `G`, `C` (analogous to `0` and `1`) that describes all traits of the organism. It is incredibly long - 2 meters and 3 billion basepairs (bits) for humans - but it is bundled up ingeniously so it fits into cells that are just 10 to 100 micrometers in diameter.
 Every cell contains an entire copy of the DNA.
 To see if a human has brown eyes, a bacterium is resistant to antibiotics, or a crab may develop porous shields, we can just read its DNA - given we know how to interpret it.
 Of course, every organism, including twins, has slightly different DNA.
