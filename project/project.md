@@ -156,7 +156,7 @@ Your lab uses a short-read sequencer such as [Illumina MiSeq](https://www.illumi
 
 #### Crash course in Bioinformatics
 
-DNA is the source code of organisms; it's a long string of the bases A, T, G, C (compared to 0 and 1) that describes all traits of the organism. It's incredibly long - 2 meters and 3 billion basepairs (bits) - but it is bundled up ingeniously so it fits into cells that are just 10 to 100 micrometers in diameter.
+DNA is the source code of organisms. It is a string of the bases `A`, `T`, `G`, `C` (analogous to `0` and `1`) that describes all traits of the organism. It is incredibly long - 2 meters and 3 billion basepairs (bits) for humans - but it is bundled up ingeniously so it fits into cells that are just 10 to 100 micrometers in diameter.
 Every cell contains an entire copy of the DNA.
 To see if a human has brown eyes, a bacterium is resistant to antibiotics, or a crab may develop porous shields, we can just read its DNA - given we know how to interpret it.
 Of course, every organism, including twins, has slightly different DNA.
@@ -170,8 +170,8 @@ We usually also have a reference DNA of that organism. This is akin to the pictu
  `ATCGAAACTT` | reference DNA
   `??????????` | skin sample DNA
  `ATCC`, `ACT`, `AAC`, `CCAAA`, `ACTT` | reads of skin sample
- <code>ATCGAAACTT</code> (reference DNA)<br><code>ATC<b>C</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACT&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AAC&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;C<b>C</b>AAA&nbsp;&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACTT</code><br><code>ATC<b>C</b>AAACTT</code> (inferred skin sample DNA) | what bwa does
-We know that a `C` mutation at the fourth<br> position leads to brown eyes. Now we <br>check for that by hand in the inferred DNA. | IGV (by hand)
+ <code>ATCGAAACTT</code> (reference DNA)<br><code>ATC<b>C</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACT&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AAC&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;C<b>C</b>AAA&nbsp;&nbsp;&nbsp;</code><br><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACTT</code><br><code>ATC<b>C</b>AAACTT</code> (aligned skin sample DNA) | what bwa does
+We know that a `C` mutation at the fourth<br> position leads to brown eyes. Now we <br>check for that by hand in the aligned DNA. | IGV (by hand)
 
 
 #### Hints
