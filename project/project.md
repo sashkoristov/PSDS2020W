@@ -265,11 +265,7 @@ You frequently trade with a wide variety of stocks on various stock exchanges. E
 You want to see at a glance how these stocks could perform.
 Therefore you program a workflow that takes these names, predicts their prices, and visualises their past and projected price.
 
-This should be done in parallel, per stock. The result should be visualised together.
-
-Furthermore, functions should learn from their RAM usage, so that the workflow becomes more cost-efficient everytime you run it.
-This becomes relevant in real-life cases where workflows are run millions of times.
-
+This should be done in parallel, per stock. The result should be visualised together. The workflow shoud return an URL of the visualisation.
 
 ### Input
 
@@ -285,7 +281,7 @@ This becomes relevant in real-life cases where workflows are run millions of tim
 * Pull commodity prices to S3
 * Enter them into AWS Forecast
 * Forecast for the coming year for each commodity
-* Download the results
+* Create a chart showing the past and future price of all commodities.
 
 
 ### Week A: Sketch the workflow with AFCL
