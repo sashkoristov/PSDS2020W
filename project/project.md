@@ -224,7 +224,7 @@ This function should run `bwa index` on a reference genome split created previou
 
 #### bwa aln `S3`
 
-Run `bwa aln` (align) for for a reference genome split created previously, for both read files (5'3 and 3'5, here R1 and R2). This is the main step of `bwa`; it aligns the reads to a reference genome. It is visualized in the table above.
+Run `bwa aln` (align) for a reference genome split created previously, for both read files (5'3 and 3'5, here R1 and R2). This is the main step of `bwa`; it aligns the reads to a reference genome. It is visualized in the table above.
 
 
 Hints:
