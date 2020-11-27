@@ -239,11 +239,13 @@ This function should run `bwa sampe` (**sam**-**p**aired-**e**nd) for the `.sai`
 
 This function should run `samtools merge` to concat the `.sam` file of each reference genome split.
 
-#### samtools sort, view
+#### samtools sort, view, index
 
 This function should run `samtools sort` to sort the `.sam` file.
 Then, run `samtools view` to convert to a binary representation (`.bam` file).
+Then, run `samtools index` to create an index (`.bam.bai` file).
 
+Keep the `.bam` and `.bam.bai` file for Week C.
 
 ## Week C (Homework 08)
 
