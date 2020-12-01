@@ -214,7 +214,7 @@ Make sure you can run the steps on your Laptop / PC.
 Serverless functions always see a fresh filesystem, but for `bwa` it's useful to have files persist.
 We recommend to write a simple abstraction that stashes & fetches the `tmp` folder to an S3 folder, and thus fakes continuity between functions (at least within the `ParallelFor`).
 
-#### Split `S3, Lambda Layers` `Python`
+#### Split `S3`
 
 This function should split the reference genome `NC_000913.3.fasta` into smaller parts. You can use any library, binary, or shell command you find online to split FASTQ or FASTA files.
 
@@ -235,11 +235,11 @@ Hints:
 
 This function should run `bwa sampe` (**sam**-**p**aired-**e**nd) for the `.sai` pair created in the previous step (R1 and R2). This will put the aligned reads into one `.sam` file.
 
-#### samtools merge
+#### samtools merge `S3`
 
 This function should run `samtools merge` to concat the `.sam` file of each reference genome split.
 
-#### samtools sort, view, index
+#### samtools sort, view, index `S3`
 
 This function should run `samtools sort` to sort the `.sam` file.
 Then, run `samtools view` to convert to a binary representation (`.bam` file).
