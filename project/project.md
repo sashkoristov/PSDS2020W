@@ -320,17 +320,13 @@ You may have to do some processing, such as stripping unnecessary fields. It is 
 Hints:
 * If you need an indicator of the market sentiment at that time, [this may help](https://raw.githubusercontent.com/qngapparat/sentim/master/python/qmarketin500.csv).
 
-#### Enter into Forecast `S3, Forecast`
+#### Forecast (updated) `S3` `Python`
 
-Enter the historical data for given commodity into AWS Forecast.
+Use a library or local algorithm to forecast the price of given commodity. You can use any library for time series prediction. For Python, [statsmodels](https://www.statsmodels.org/stable/index.html) and [prophet by Facebook](https://facebook.github.io/prophet/) are great.
 
-#### Start `S3, Forecast`
+Hints: 
+* You can choose any algorithm, but some may be better suited for stocks. 
 
-Start the forecast for given commidity, and move the results to a file on S3. 
-
-<!--Hints:
-* Since you will be generating JavaScript code, it's useful to code this function in NodeJS
--->
 #### Process result `S3`
 
 Fetch the result file for given commodity from S3 and prepare it for visualisation. Strip fields that you aren't interested in. Save it in a way that's easy to read for the following step.
