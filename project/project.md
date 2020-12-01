@@ -326,6 +326,7 @@ Use a library or local algorithm to forecast the price of given commodity. You c
 
 Hints: 
 * You can choose any algorithm, but some may be better suited for stocks. 
+* prophet is large and one-size-fits-most, while statsmodels is small and more configurable.
 
 #### Process result `S3`
 
