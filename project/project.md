@@ -281,7 +281,6 @@ This should be done in parallel, per stock. The result should be visualised toge
 ### Rough steps
 
 * Pull commodity prices to S3
-* Enter them into AWS Forecast
 * Forecast for the coming year for each commodity
 * Create a chart showing the past and future price of all commodities.
 
