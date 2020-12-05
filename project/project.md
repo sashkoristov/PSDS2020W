@@ -281,7 +281,6 @@ Orchestrate the functions with the Enactment Engine to run the functions automat
 
 ### Investigate with IGV
 
-
 >In Escherichia coli an increased frequency of persisters (...) is conferred by [two point] mutations in the **hipA gene**, which encodes the toxin entity of the toxin-antitoxin module hipBA. [Korch S.B., Hill T.M.](https://www.uniprot.org/citations/16707675)
 
 
@@ -290,7 +289,7 @@ The mutations are one `G` to `A`, and one `A` to `C` respectively. If they are t
 
 1. Download and start the [Integrative Genomics Viewer](https://software.broadinstitute.org/software/igv/download).
 1. Select the Ecoli reference genome (`NC_000913.3`) (Marker 1)
-1. Import your reads with File > Load from file > Your `.bam` file
+1. Import your alignments with File > Load from file > Your `.bam` file (produced either by the script, or the workflow)
 1. Jump to the `hipA` gene (Marker 2, Marker 5)
 
 You can see your reads as grey bars in Marker 4. The arrow tips indicate read direction. A letter means the read is different to the reference genome in that spot. The more reads agree on a difference, the more confident you can be it is not just noise.
