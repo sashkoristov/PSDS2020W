@@ -153,8 +153,7 @@ Your lab uses a short-read sequencer such as [Illumina MiSeq](https://www.illumi
 * One [FASTA](https://genome.sph.umich.edu/wiki/FASTA) text file containing the entire DNA of Ecoli ('reference genome')
 * Two FASTQ text files (FASTA plus likelihood that reads are correct) with paired-end reads ('ABCDE' and 'EDCBA', respectively) of your Ecoli sample, obtained from the MiSeq.
 
-
-
+Update: The reads were slimmed down to 50% of its previous size. We also left you [a hint here](#hints) to better cope with output file size.
 
 ### Rough steps
 
@@ -202,8 +201,8 @@ We know that a `C` mutation at the fourth<br> position leads to brown eyes. Now 
 
 
 ### Hints
-
-This workflow is all about file management at scale. Assume that every step (`bwa index`, `bwa aln` and so on) produces new files that the next step needs.
+* You can at any point make `.sam` and `.bam` files much smaller by filtering out unaligned reads: `samtools view -b -F 4 file.bam/.sam > slimfile.bam/.sam`. It is idempotent.
+* This workflow is all about file management at scale. Assume that every step (`bwa index`, `bwa aln` and so on) produces new files that the next step needs.
 Furthermore, the parallel section produces files with the same name. We left you a recommendation how to handle this [in Week B](#rough-functions-1).
 
 
@@ -273,6 +272,7 @@ Then, run `samtools view` to convert to a binary representation (`.bam` file).
 Then, run `samtools index` to create an index (`.bam.bai` file).
 
 Keep the `.bam` and `.bam.bai` file for Week C.
+
 
 ## Week C (Homework 08)
 
