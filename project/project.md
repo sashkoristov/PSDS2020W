@@ -201,10 +201,9 @@ We know that a `C` mutation at the fourth<br> position leads to brown eyes. Now 
 
 
 ### Hints
-* You can at any point make `.sam` and `.bam` files much smaller by filtering out unaligned reads: `samtools view -b -F 4 file.bam/.sam > slimfile.bam/.sam`. It is idempotent.
-* This workflow is all about file management at scale. Assume that every step (`bwa index`, `bwa aln` and so on) produces new files that the next step needs.
-Furthermore, the parallel section produces files with the same name. We left you a recommendation how to handle this [in Week B](#rough-functions-1).
-
+* You can at any point make `.sam` and `.bam` files much smaller by filtering out unaligned reads: `samtools view -b -F 4 file.bam/.sam > slimfile.bam/.sam` . It is idempotent.
+* If reads in IGV are bunched together on  the left, are in large parts are empty or very colored, the FASTA file was probably not split correctly. We left you a hint in `Week B > Rough Functions > Split` on how to do it correctly.
+* This FC is all about file management at scale. Assume that every step (`bwa index`, `bwa aln` and so on) produces new files that the next step needs. Furthermore, the parallelFor produces files with the same name.
 
 
 ## Week A (Homework 06): Sketch the workflow with AFCL
@@ -242,7 +241,11 @@ We recommend to write a simple abstraction that stashes & fetches the `tmp` fold
 
 #### Split `S3`
 
-This function should split the reference genome `NC_000913.3.fasta` into smaller parts. You can use any library, binary, or shell command you find online to split FASTQ or FASTA files.
+This function should split the reference genome `NC_000913.3.fasta` into smaller parts. 
+Every split should be identical to the reference genome file, except that bases outside the split's window are replaced (masked) with `N` (null character). Keep lines that are comments (start with `>`).
+
+Hints:
+* Count characters with `wc --chars` after splitting to ensure you didn't drop any.
 
 #### bwa index `S3`
 
